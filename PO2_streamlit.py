@@ -39,6 +39,7 @@ if uploaded_file!=None:
         df=pd.concat([df.iloc[:1], df[(df['Cidade']==cidade_unica)]]) # independente da cidade a sede da cooperativa estará incluída desde que sigam a instrução 
                                                                       # de colocá-la na primeira linha
         df.drop_duplicates(inplace=True) # caso maricá seja a cidade escolhida é importante que não se repita
+        df.reset_index(drop=True,inplace=True)
 
     if df.shape[0]==1:
         st.write('Sua tabela só tem 1 local, verifique o que pode ter acontecido levando em conta as instruções no início da página.')
